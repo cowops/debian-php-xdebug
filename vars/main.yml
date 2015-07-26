@@ -1,5 +1,6 @@
-# XDebug
-xdebug: {
+debian:
+    version: wheezy
+xdebug:
     default_enable : 0,
     profiler_enable_trigger : 1,
     profiler_output_name : "cachegrind.out.%u",
@@ -11,4 +12,3 @@ xdebug: {
     show_mem_delta : 1,
     trace_format : 1,
     var_display_max_data : 2048
-}

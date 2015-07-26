@@ -3,13 +3,13 @@
   apt_key: url=http://www.dotdeb.org/dotdeb.gpg state=present
   
 - name: add dotdeb default repositories
-  apt_repository: repo='deb http://packages.dotdeb.org {{ debian }} all' state=present
+  apt_repository: repo='deb http://packages.dotdeb.org {{ debian.version }} all' state=present
 
 - name: add dotdeb php55 repositories
-  apt_repository: repo='deb http://packages.dotdeb.org {{ debian }}-php55 all' state=present
+  apt_repository: repo='deb http://packages.dotdeb.org {{ debian.version }}-php55 all' state=present
 
 - name: add dotdeb php55 sources repositories
-  apt_repository: repo='deb-src http://packages.dotdeb.org {{ debian }}-php55 all' state=present
+  apt_repository: repo='deb-src http://packages.dotdeb.org {{ debian.version }}-php55 all' state=present
 
 - name: install xdebug php packages
   apt: pkg={{ item }} state=latest force=yes update_cache=yes

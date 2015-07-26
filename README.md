@@ -11,7 +11,9 @@ This role requires a debian compliant system such as ubuntu.
 Role Variables
 --------------
 
-xdebug: {
+debian:
+    version: wheezy
+xdebug:
     default_enable : 0,
     profiler_enable_trigger : 1,
     profiler_output_name : "cachegrind.out.%u",
@@ -23,7 +25,6 @@ xdebug: {
     show_mem_delta : 1,
     trace_format : 1,
     var_display_max_data : 2048
-}
 
 Dependencies
 ------------
@@ -35,7 +36,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: loranger.debian-php-xdebug, xdebug.default_enable : 0, xdebug.profiler_enable_trigger : 1, xdebug.profiler_output_name : "cachegrind.out.%u", xdebug.remote_enable : 0, xdebug.remote_host : "80.11.76.108", xdebug.max_nesting_level : 10000, xdebug.profiler_output_dir : "/home/tmp/cachegrind/", xdebug.trace_output_dir : "/home/tmp/cachegrind/", xdebug.show_mem_delta : 1, xdebug.trace_format : 1, xdebug.var_display_max_data : 2048 }
+         - { role: loranger.debian-php-xdebug, debian.version: wheezy, xdebug.default_enable : 0, xdebug.profiler_enable_trigger : 1, xdebug.profiler_output_name : "cachegrind.out.%u", xdebug.remote_enable : 0, xdebug.remote_host : "80.11.76.108", xdebug.max_nesting_level : 10000, xdebug.profiler_output_dir : "/home/tmp/cachegrind/", xdebug.trace_output_dir : "/home/tmp/cachegrind/", xdebug.show_mem_delta : 1, xdebug.trace_format : 1, xdebug.var_display_max_data : 2048 }
 
 Tasks
 -----
