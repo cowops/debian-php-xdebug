@@ -18,9 +18,14 @@
   apt_repository: repo='deb https://packages.sury.org/php/ {{ debian.version }} main' state=present
 
 - name: install xdebug php packages
-  apt: pkg={{ item }} state=latest force=yes update_cache=yes
-  with_items:
-    - php5-xdebug
+  apt:
+    name: {{ packages }}
+    state: latest
+    update_cache: yes
+    force: yes
+  vars:
+    packages:
+      - php5-xdebug
 
 - name: copy xdebug.ini
   template: src=xdebug.ini.j2 dest=/etc/php5/mods-available/xdebug.ini
