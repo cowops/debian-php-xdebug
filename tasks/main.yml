@@ -19,7 +19,7 @@
 
 - name: install xdebug php packages
   apt:
-    name: {{ packages }}
+    name: "{{ packages }}"
     state: latest
     update_cache: yes
     force: yes
